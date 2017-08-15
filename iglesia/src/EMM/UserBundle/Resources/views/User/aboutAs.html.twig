@@ -1,0 +1,97 @@
+
+{% extends 'layout.html.twig' %}
+
+ 
+{% block body %}
+    
+    {{parent()}}
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <h1> Subir lucas fernandez</h1>
+                    {% for flashMessage in app.session.flashbag.get('mensaje')%}
+                        
+                        <span class="alert-success">
+                            {{flashMessage}}
+                        </span>
+                        
+                    {% endfor %}    
+                </div>
+
+                <div class="panel panel-body">
+                    
+                    <form role="form" enctype="multipart/form-data" method="post" action="{{path('emm_user_aboutas')}}">
+                        <label class="sr-only"  for="formu">archivo</label>
+                        <input type="file"  name="archivito" class="form-control" id="formu"/>
+                        <button type="submit" class="btn btn-default">Enviar</button>
+                        
+                        
+                    </form>
+                    
+                </div>
+
+            </div>
+        </div>
+                        
+    </div>
+    <img id="imagen" src={{asset('uploads/archivos/phpFB19.tmp')}} alt="CF"/>                    
+
+    
+    <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="panel panel-default">
+                                    <div class="panel panel-heading">
+                                        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>filtro
+                                    </div>  
+                                    <div class="panel panel-body">
+                                         <img id="imagen" src="{{asset('public/images/yusseff.jpg')}}" alt="CF"/>
+                                    </div>  
+                                </div>  
+                            </div>
+                                    
+                                 {% for unArchivo in archivos %}    
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel panel-heading">
+                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"><span class="text-justify"> Nombre Usuario:{{unArchivo.getuser.getusername}}</span>
+                                        </div>  
+                                        <div class="panel panel-body">
+                                                    <p>
+                                                 <strong>
+                                                  {{unArchivo.getcreatedat|date('Y-m-d H:i:s')}}        
+                                                 </strong>
+                                                 <br>
+                                                 
+                                         
+                                                <img id="imagen" src="{{asset('uploads/archivos/')}}{{unArchivo.getarchivo}}" alt="CF"/> 
+                                               
+                                                        <a href="{{asset('uploads/archivos/')}}{{unArchivo.getarchivo}}">Descargar fichero lineadecodigo.txt</a>
+                                                        
+                                                        <audio src="{{asset('uploads/archivos/')}}{{unArchivo.getarchivo}}">
+                                                         
+                                                        </audio>
+                                                        
+                                                        <audio id="sonido" src="{{asset('uploads/archivos/')}}{{unArchivo.getarchivo}}">" controls>
+                                                               </audio>
+                                        </div>  
+                                    </div>  
+                                </div>
+                            </div>  
+                                        
+                                 
+                              {% endfor %}       
+                        </div>
+                    </div> 
+
+</div>
+    
+ 
+
+    
+{% endblock %}

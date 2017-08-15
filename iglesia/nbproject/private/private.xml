@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/Visitante/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Models/UploadFileMover.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/usercontrollernoanduvo.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/plantillasVenta.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Entity/Archivo.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/TaskController.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Entity/User.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/routes/user.yml</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/aboutAs.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Entity/Task.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/add.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/view.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Models/Document.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Form/UserType.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/services.yml</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/indexx.html.twig</file>
+        </group>
+    </open-files>
+</project-private>
