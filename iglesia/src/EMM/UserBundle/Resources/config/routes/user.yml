@@ -37,6 +37,14 @@ emm_user_delete:
     defaults: { _controller: EMMUserBundle:User:delete }
     methods:  [POST, DELETE]
 
+emm_user_subir:
+    path: /subir
+    defaults: { _controller: EMMUserBundle:User:subir }
+
+emm_user_plantillas:
+    path:     /plantillasVenta
+    defaults: { _controller: EMMUserBundle:User:plantillasVenta}
+
 emm_user_redirect_add:
     path: /create
     defaults:
@@ -44,9 +52,7 @@ emm_user_redirect_add:
         path: /add
         permanent: true
         
-emm_user_plantillas:
-    path:     /plantillasVenta
-    defaults: { _controller: EMMUserBundle:User:plantillasVenta}
+
 
 emm_user_redirect_edit:
     path: /update/{id}
@@ -55,6 +61,4 @@ emm_user_redirect_edit:
         path: /edit/{id}
         permanent: true
 
-emm_user_subir:
-    path: /subir
-    defaults: { _controller: EMMUserBundle:User:subir }
+

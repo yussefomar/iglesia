@@ -14,14 +14,11 @@ use EMM\UserBundle\Entity\Archivo;
 
 class UserController extends Controller
 {
-    public function aboutAsAction(Request $request){
+    public function subirAction(Request $request){
         
         
         
-           $repositorio=$this->getDoctrine()->getRepository('EMMUserBundle:Archivo');
-                         $query=$repositorio->createQueryBuilder('a')->orderBy('a.createdAt','DESC')->setMaxResults(10)->getQuery();
-              
-                         $archivos=$query->getResult();
+          
         
         if ($request->getMethod() == 'POST') {
             $image = $request->files->get('archivito');
@@ -32,7 +29,7 @@ class UserController extends Controller
 
                     $name_array = explode('.', $originalName); /* separa los elemento que tengan un punto */
                     $file_type = $name_array[sizeof($name_array) - 1]; /* obtiene la extension del largo menos uno, me duevle la extension ya que empieza de cero el arreglo y termina en sizeof menos uno */
-                    $valid_filetypes = array('jpg', 'jpeg', 'png','mp3'); /* crea un arreglo con todas las extenciones que vas a aceptar, valida que estos suban esos tipos de archivos */
+                    $valid_filetypes = array('jpg', 'jpeg', 'png'); /* crea un arreglo con todas las extenciones que vas a aceptar, valida que estos suban esos tipos de archivos */
                     if (in_array(strtolower($file_type), $valid_filetypes))/* valida si tiene alguna de esas extensiones, in_array es para de php, sirve para buscarelementos denro de un arreglo, y strlower para pasar a mayuscula, filetyep para recorrelo , si retorna verdadero entonces cumple */ {
                         $document = new Document();
                         $document->setFile($image); /* recibe como parametro el arreglo y con es hace el upload delarchivo */
@@ -52,7 +49,7 @@ class UserController extends Controller
                         $archivo->setUser($usuarios);
                       
                         $archivo->setStatus(1);
-                        $archivo->setDescription('nuevo archivo');
+                        $archivo->setDescription('Archivo Bautista');
                         
                        
                         
@@ -68,8 +65,8 @@ class UserController extends Controller
                         
                         
                          
-        
-                      return $this->render('ProyectoUserBundle:User:aboutAs.html.twig',array('archivos'=>$archivos));
+                       return $this->redirectToRoute('emm_user_aboutas');
+                      //return $this->render('EMMUserBundle:User:aboutAs.html.twig');
                         
                         
                         
@@ -80,7 +77,7 @@ class UserController extends Controller
                                 'mensaje', 'la extensión del archivo no es la correcta'
                         );
                         //redirecciono        
-                        return $this->redirect($this->generateUrl('emm_user_aboutas'));
+                        return $this->redirect($this->generateUrl('emm_user_subir'));
                     }
                 }
             } else {
@@ -88,11 +85,11 @@ class UserController extends Controller
                         'mensaje', 'no entró o se produjo algún error inesoperado'
                 );
                 //redirecciono        
-                return $this->redirect($this->generateUrl('emm_user_aboutas'));
+                return $this->redirect($this->generateUrl('emm_user_subir'));
                 //die("no entró o se produjo algún error inesoperado");
             }
         }
-         return $this->render('EMMUserBundle:User:aboutAs.html.twig',array('archivos'=>$archivos));
+         return $this->render('EMMUserBundle:User:subir.html.twig');
     }
     
     
@@ -366,10 +363,15 @@ class UserController extends Controller
         return $this->render('EMMUserBundle:User:plantillasVenta.html.twig');
     }
     
-    
-    public function subirAction(Request $request){
+     public function aboutAsAction()
+            
+    {
+      $repositorio=$this->getDoctrine()->getRepository('EMMUserBundle:Archivo');
+      $query=$repositorio->createQueryBuilder('a')->orderBy('a.createdAt','DESC')->setMaxResults( 8)->getQuery();
+              
+      $archivos=$query->getResult();
         
-        
-          return $this->render('EMMUserBundle:User:subir.html.twig');
-    }    
+        return $this->render('EMMUserBundle:User:aboutAs.html.twig',array('archivos'=>$archivos));
+    }
+   
 }
