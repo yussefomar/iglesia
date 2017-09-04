@@ -6,7 +6,9 @@ emm_task_task:
     resource: "@EMMUserBundle/Resources/config/routes/tasks.yml"
     prefix:   /task
 
-
+emm_archivo_archivo:
+    resource: "@EMMUserBundle/Resources/config/routes/archivo.yml"
+    prefix:   /archivo
 # autenticacion
 
 
