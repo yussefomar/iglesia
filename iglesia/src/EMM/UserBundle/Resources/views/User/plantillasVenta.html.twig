@@ -64,25 +64,51 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
             
           </p>
-          <div class="jumbotron">
-            <h1>¿Que Es Una Iglesia Bautista?</h1>
-            <p>Una Iglesia Bautista es un grupo de personas, pero no de cualesquier personas, sino de hijos de Dios. Según la Biblia, la autoridad máxima para los bautistas, cada persona que ha recibido a Jesús como su Señor y Salvador personal ha llegado a ser hijo de Dios (Juan 1:12). El mismo Espíritu de Dios vive en ellos y da testimonio de la verdad de que ya son hijos de Dios (Romanos 8:16, 17) y que nada ni nadie les puede separar del amor divino (Romanos 8:28, 29).
-
-Entonces, los miembros de una iglesia bautista son personas que se han arrepentido de sus pecados, han nacido de nuevo y han dado testimonio público de esto, siendo bautizados por inmersión en agua. Dios es su Padre celestial y son "herederos de Dios y coherederos con Cristo".
-
-Una Iglesia Bautista es una familia de fe. Es un compañerismo espiritual de cristianos que se han unido y desean practicar las enseñanzas de Jesús y llevar a cabo sus propósitos en la tierra. Creen que la base de la fe y práctica cristianas es la Biblia y que el único mediador entre Dios y los hombres es Jesucristo (1 Timoteo 2:5).
-
-El Espíritu Santo de Dios vive en cada creyente bautista y le comparte su amor divino (Romanos 5:5). Este fruto del Espíritu llega a ser la característica principal de la iglesia (Juan 15:35; Gálatas 5:22, 23). El Espíritu Santo también les reparte dones a cada miembro de la familia de Dios. Cada uno es responsable ante Dios por el ministerio que ha de desarrollar como parte vital del cuerpo de Cristo (Romanos 12:1-8).
-
-¿Quién dirige la Iglesia Bautista? No hay ningún hombre nombrado para dirigirla. Los bautistas creen que Jesucristo mismo es la cabeza de su iglesia (Colosenses 1:17, 18). El Nuevo Testamento enseña que cada iglesia tiene dos oficios -el del pastor y el de los diáconos. Ellos son los siervos de Cristo y de la iglesia local (2 Corintios 4:5). Cada pastor ha de cuidar a los miembros de su congregación como un pastor cuida su rebaño. Los líderes han de orar, predicar, enseñar, aconsejar y servir en tal manera que todos los miembros sean equipados para poder cumplir con Dios en llevar a cabo el ministerio total de la iglesia (Efesios 4:11, 12) y servirle como el "Real sacerdocio" de Dios (1 Pedro 2:9).
-
-La Iglesia Bautista no tiene sacramentos pero observa las dos ordenanzas que Jesús dio a su iglesia -el bautismo y la cena del Señor. El bautismo neotestamentario es por inmersión en agua y solamente para los que han puesto su fe en Jesús como su Salvador personal. La cena del Señor es un acto de adoración por el cual los cristianos recuerdan la muerte de Jesús hasta que él regrese (Lucas 22:19, 1 Corintios 11:23-26). El bautismo es un testimonio público de la fe en Cristo y la participación en la Cena es un testimonio de que toda la esperanza cristiana se base en él y lo que él hizo en la cruz por todos los pecadores.
-
-La Iglesia Bautista se siente comisionada por Jesús mismo a compartir el mensaje de la salvación con todo el mundo. El mensaje que proclama es que Dios ama a todo el mundo y quiere que tenga la vida abundante y eterna (Juan 3:16). El pecado separa a cada persona de este amor (Romanos 3:22, 23). Por eso Jesús vino al mundo y murió en la cruz y allí pagó el precio completo de la salvación (Romanos 5:8). Cada pecador puede aceptar la muerte de Jesús como el pago por sus pecados, arrepentirse y volver a Dios. La vida abundante y eterna es una dádiva que Dios ofrece a todos a través de Cristo Jesús (Romanos 6:23).
-
-Cada Iglesia Bautista es autónoma y está libre para cooperar con otras iglesias en la formación de asociaciones y/o convenciones de iglesias. Este espíritu de cooperación es la clave para llevar el mensaje de la salvación hasta el último rincón del mundo (Mateo 28:16-20).</p>
+          
+         
+ 
+        <div class="col-md-4 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Diario De Una Biblia</a>
+            <a href="#" class="list-group-item">Clínica del Alma</a>
+            <a href="#" class="list-group-item">El Aeropuerto Que Se Hunde</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
           </div>
-          <div class="row">
+        </div><!--/.sidebar-offcanvas-->
+                <div class="col-md-4 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Ultimos Mensajes</a>
+            <a href="#" class="list-group-item">Clínica del Alma</a>
+            <a href="#" class="list-group-item">El Aeropuerto Que Se Hunde</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+                <div class="col-md-4 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Actividades Futuras</a>
+            {% for unArchivo in archivos %}
+                
+            <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getDescription})}}"   class="list-group-item"> {{unArchivo.getTitle}}</a>
+            
+            {% endfor %} 
+            
+            
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
+       <div class="row">
             <div class="col-xs-6 col-lg-4">
               <h2>Pierre</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -111,24 +137,10 @@ Cada Iglesia Bautista es autónoma y está libre para cooperar con otras iglesia
               
             </div><!--/.col-xs-6.col-lg-4-->
           </div><!--/row-->
+          
         </div><!--/.col-xs-12.col-sm-9-->
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">Diario De Una Biblia</a>
-            <a href="#" class="list-group-item">Clínica del Alma</a>
-            <a href="#" class="list-group-item">El Aeropuerto Que Se Hunde</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-          </div>
-        </div><!--/.sidebar-offcanvas-->
-      </div><!--/row-->
-      
+        
+        
       <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC-Q_XHJH59EfG5uXyr_CZnMMObJxx7SXs'></script><div style='overflow:hidden;height:348px;width:447px;'><div id='gmap_canvas' style='height:348px;width:447px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://maps-website.com/es'>más información</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=b41b35442bad6e8127fcdf085d3b99bdab476629'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(-34.6511834,-58.46862710000005),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-34.6511834,-58.46862710000005)});infowindow = new google.maps.InfoWindow({content:'<strong>Iglesia Bautista Emanuel</strong><br> Echeandía 3741<br> 8000  Buenos Aires<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
       <hr>
 

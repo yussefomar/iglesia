@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel panel-heading">
-                    <h1> Subir lucas fernandez</h1>
+                    <h1>Subir Archivo</h1>
                     {% for flashMessage in app.session.flashbag.get('mensaje')%}
                         
                         <span class="alert-success">
@@ -22,14 +22,27 @@
 
                 <div class="panel panel-body">
                     
+                    
+                    
                     <form role="form" enctype="multipart/form-data" method="post" action="{{path('emm_user_subir')}}">
                         <label class="sr-only"  for="formu">archivo</label>
                         <input type="file"  name="archivito" class="form-control" id="formu"/>
+                        
+                         
+
+                      
+                        <label for="formu"> Titulo</label>
+                      <input type="text" class="form-control" id="url" name="titulo" placeholder="escribe un titulo"/>
+                      
+                                            <label for="formu"> URL</label>
+                      <input type="text" class="form-control" id="url" name="url" placeholder="direccion unica para la entrada"/>
+                      
                         <button type="submit" class="btn btn-default">Enviar</button>
                         
                         
                     </form>
                     
+                        
                 </div>
 
             </div>

@@ -9,7 +9,7 @@
 				<div class="page-header">
 					<h2>{% trans %}nueva entrada{% endtrans %}</h2>
 				</div>
-                {{ form_start(form, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form'} }) }}
+                {{ form_start(form, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form' ,'enctype':'multipart/form-data'} }) }}
                 
                 <div class="form-group">
                     {{ form_label(form.title) }}
@@ -23,6 +23,25 @@
 			        <span class="text-danger">{{ form_errors(form.description) }}</span>
 			    </div>
 
+                            <textarea class="form-control" rows="3">
+                                
+
+                            </textarea>
+                            
+                             <div class="form-group">
+			        {{ form_label(form.archivo) }}
+			        {{ form_widget(form.archivo, {'attr': {'class': 'form-control', 'type' : 'file',}}) }}
+                                <button type="submit" class="btn btn-default">Enviar</button>
+			        <span class="text-danger">{{ form_errors(form.description) }}</span>
+			    </div>
+                            
+                               <form role="form" enctype="multipart/form-data" method="post" action="{{path('emm_user_subir')}}">
+                         {{ form_label(form.archivo) }}
+                        <input type="file"  name="archivito" class="form-control" id="formu"/>
+                        <button type="submit" class="btn btn-default">Enviar</button>
+                        
+                        
+                    </form>  
 			     
 				 
 			</fieldset>

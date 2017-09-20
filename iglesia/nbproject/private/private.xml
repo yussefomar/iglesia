@@ -3,29 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/Visitante/index.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/usercontrollernoanduvo.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/Archivo/add.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Form/TaskType.php</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/plantillasVenta.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/index.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/subir.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Entity/Archivo.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/TaskController.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Entity/User.php</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/routes/tasks.yml</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/subir.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/ArchivoController.php</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/routes/user.yml</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Form/ArchivoType.php</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/aboutAs.html.twig</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/routes/archivo.yml</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/edit.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Entity/Task.php</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Controller/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/entradas.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/add.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/view.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/home.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Form/UserType.php</file>
+            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/home.html.twig</file>
             <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/views/User/indexx.html.twig</file>
-            <file>file:/C:/xampp/htdocs/symfony/iglesia/src/EMM/UserBundle/Resources/config/services.yml</file>
         </group>
     </open-files>
 </project-private>

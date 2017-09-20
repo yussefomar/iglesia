@@ -1,11 +1,10 @@
-
 {% extends 'layout.html.twig' %}
 
  
 {% block body %}
     
     {{parent()}}
-                
+             
      {% for flashMessage in app.session.flashbag.get('mensaje')%}
                         
                         <span class="alert-success">
@@ -18,18 +17,24 @@
     <div class="row">
                             
                                     
-                                 {% for unArchivo in archivos %}    
+                                 
                             <div class="row">
                                 <div class="col-md-12">
 
                                     <div class="panel panel-default">
                                         <div class="panel panel-heading">
-                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"><span class="text-justify">  {{unArchivo.getTitle}}</span>
+                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"><span class="text-justify"> Nombre Usuario:{{unArchivo.getuser.getusername}}</span>
                                         </div>  
                                         <div class="panel panel-body">
                                                     <p>
                                                  <strong>
                                                   {{unArchivo.getcreatedat|date('Y-m-d H:i:s')}}        
+                                                 </strong>
+                                                 <br>
+                                                 
+                                                  <p>
+                                                 <strong>
+                                                  {{unArchivo.getTitle()}}        
                                                  </strong>
                                                  <br>
                                                  
@@ -56,7 +61,7 @@
                             </div>  
                                         
                                  
-                              {% endfor %}       
+                                   
                         </div>
                     </div> 
 

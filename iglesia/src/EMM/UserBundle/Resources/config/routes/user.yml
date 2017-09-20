@@ -3,8 +3,12 @@ emm_user_index:
     defaults: { _controller: EMMUserBundle:User:index }
     
 emm_user_aboutas:
-    path:     /aboutAs
+    path:     /aboutAs/
     defaults: { _controller: EMMUserBundle:User:aboutAs }   
+
+emm_user_entradas:
+    path:     /entradas/{entradasurl}
+    defaults: { _controller: EMMUserBundle:User:entradas } 
     
 emm_user_sermones:
     path:     /sermones

@@ -14,7 +14,7 @@ class ArchivoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title')
-                ->add('description')
+                ->add('description','textarea', array('attr' => array('class' => 'tinymce')))
                 ->add('status')
                 ->add('createdAt')
                 ->add('updatedAt')
