@@ -21,6 +21,10 @@ class Archivo
     
      protected $user;
     
+      /**
+     * @ORM\OneToMany(targetEntity="Comentario", mappedBy="entradaid")  
+     */ 
+    protected $comentarios;
     
     
     /**
@@ -31,6 +35,14 @@ class Archivo
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+    
 
     /**
      * @var string
@@ -274,5 +286,68 @@ class Archivo
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Archivo
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Comentario $comentarios
+     * @return Archivo
+     */
+    public function addComentario(\EMM\UserBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios[] = $comentarios;
+
+        return $this;
+    }
+
+    /**
+     * Remove comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Comentario $comentarios
+     */
+    public function removeComentario(\EMM\UserBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios->removeElement($comentarios);
+    }
+
+    /**
+     * Get comentarios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
     }
 }

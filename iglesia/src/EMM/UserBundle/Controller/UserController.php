@@ -24,7 +24,7 @@ class UserController extends Controller
             $image = $request->files->get('archivito');
             $url =$request->request->get('url');
             $titulo =$request->request->get('titulo');  
-             
+             $descripcion =$request->request->get('descripcion'); 
             if (($image instanceof UploadedFile) && ($image->getError() == '0'))/* image es un instancia de uploadfile  y si no hay la crea   y el get error es igual a cero osea estatus recicibiod bien, pero todavia no se  guarda */ {
                 if (($image->getSize() < 20000000000000)) {
                     $originalName = $image->getClientOriginalName(); /* retorna el nombre del archivo original */
@@ -51,7 +51,8 @@ class UserController extends Controller
                         $archivo->setUser($usuarios);
                       
                         $archivo->setStatus(1);
-                        $archivo->setDescription($url);
+                        $archivo->setDescription($descripcion);
+                        $archivo->setUrl($url);
                         
                        
                         
@@ -389,9 +390,9 @@ class UserController extends Controller
      $repository = $this->getDoctrine()
     ->getRepository('EMMUserBundle:Archivo');
        
-       $unArchivo = $repository->findOneBy(array(
-      'description' => $entradasurl
-));
+      
+                 $unArchivo = $repository->findOneByUrl($entradasurl);
+
        if (!$unArchivo) {
         throw $this->createNotFoundException(
             'No product found for id '.$entradasurl

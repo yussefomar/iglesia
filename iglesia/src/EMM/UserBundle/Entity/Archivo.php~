@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="archivo")
  * @ORM\Entity(repositoryClass="EMM\UserBundle\Repository\ArchivoRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Archivo
 {
@@ -20,6 +21,10 @@ class Archivo
     
      protected $user;
     
+      /**
+     * @ORM\OneToMany(targetEntity="Comentario", mappedBy="entradaid")  
+     */ 
+    protected $comentarios;
     
     
     /**
@@ -30,6 +35,14 @@ class Archivo
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+    
 
     /**
      * @var string
@@ -153,6 +166,9 @@ class Archivo
         return $this->status;
     }
 
+    
+     
+    
     /**
      * Set createdAt
      *
@@ -176,6 +192,10 @@ class Archivo
         return $this->createdAt;
     }
 
+    
+    
+   
+    
     /**
      * Set updatedAt
      *
@@ -189,6 +209,29 @@ class Archivo
         return $this;
     }
 
+    
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    
+    
+    public function setUpdatedAtValue()/* fecha la hora correspondiente ala que se va a tuilizar*/
+    {
+        $this->updatedAt =new \DateTime();/* esto se setea en prepersist y tambien adiciamente preudate en el cmomento que actualizemos o modifquemos uno de nuestros registrso*/
+
+        return $this;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue( )/*va a sestiar nuestra fecha actual a la que se esta registrarse*/
+    {
+        $this->createdAt = new \DateTime();/*al momento qaue perssiste , setea por eso prepersisit*/
+
+        return $this;
+    }
+    
     /**
      * Get updatedAt
      *
@@ -220,5 +263,51 @@ class Archivo
     public function getArchivo()
     {
         return $this->archivo;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \EMM\UserBundle\Entity\User $user
+     * @return Archivo
+     */
+    public function setUser(\EMM\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \EMM\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Archivo
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

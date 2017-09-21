@@ -23,7 +23,10 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\OneToMany(targetEntity="Task", mappedBy="user")
      * @ORM\OneToMany(targetEntity="Archivo",mappedBy="user")
+     * * @ORM\OneToMany(targetEntity="Comentario",mappedBy="user")
      */ 
+    
+    protected $comentarios;
 protected $tasks;
  protected $archivos;   
    
@@ -409,6 +412,44 @@ protected $tasks;
     public function getFullName(){
         return $this->firstName." ".$this->lstaName;
     }
+    
+    
+    
+    
+     /**
+     * Add archivos
+     *
+     * @param \EMM\UserBundle\Entity\Archivo $archivos
+     * @return User
+     */
+    public function addArchivo(\EMM\UserBundle\Entity\Archivo $archivos)
+    {
+        $this->archivos[] = $archivos;
+
+        return $this;
+    }
+
+    /**
+     * Remove archivos
+     *
+     * @param \EMM\UserBundle\Entity\Archivo $archivos
+     */
+    public function removeArchivo(\EMM\UserBundle\Entity\Archivo $archivos)
+    {
+        $this->archivos->removeElement($archivos);
+    }
+
+    /**
+     * Get archivos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArchivos()
+    {
+        return $this->archivos;
+    }
+    
+    
     
     /** @see \Serializable::serialize() */
     public function serialize()

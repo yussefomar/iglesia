@@ -23,7 +23,10 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\OneToMany(targetEntity="Task", mappedBy="user")
      * @ORM\OneToMany(targetEntity="Archivo",mappedBy="user")
+     * * @ORM\OneToMany(targetEntity="Comentario",mappedBy="user")
      */ 
+    
+    protected $comentarios;
 protected $tasks;
  protected $archivos;   
    
@@ -484,5 +487,38 @@ protected $tasks;
     public function isEnabled()
     {
         return $this->isActive;
+    }
+
+    /**
+     * Add comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Task $comentarios
+     * @return User
+     */
+    public function addComentario(\EMM\UserBundle\Entity\Task $comentarios)
+    {
+        $this->comentarios[] = $comentarios;
+
+        return $this;
+    }
+
+    /**
+     * Remove comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Task $comentarios
+     */
+    public function removeComentario(\EMM\UserBundle\Entity\Task $comentarios)
+    {
+        $this->comentarios->removeElement($comentarios);
+    }
+
+    /**
+     * Get comentarios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
     }
 }

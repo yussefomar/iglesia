@@ -41,7 +41,7 @@
                                                  <p>
                                                  <strong>
                                                  
-                                                       <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getDescription})}}" class="btn btn-sm btn-primary"> ver mas</a>
+                                                       <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getUrl})}}" class="btn btn-sm btn-primary"> ver mas</a>
                                                     
                                                  </strong>
                                                  <br>
@@ -63,8 +63,63 @@
                                  
                                    
                         </div>
-                    </div> 
+                  
+                  
+                  
+                  
+                   <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <h1>Subir Archivo</h1>
+                    {% for flashMessage in app.session.flashbag.get('mensaje')%}
+                        
+                        <span class="alert-success">
+                            {{flashMessage}}
+                        </span>
+                        
+               <div class="container">
 
+         {% endfor %}    
+                </div>
+                  
+                   <div class="panel panel-body">
+                    
+                    
+                    
+                    <form role="form" enctype="multipart/form-data" method="post" action="{{path('emm_user_subir')}}">
+                        <label class="sr-only"  for="formu">foto</label>
+                        <input type="file"  name="archivito" class="form-control" id="formu"/>
+                        
+                         
+
+                      
+                        <label for="formu"> Titulo</label>
+                      <input type="text" class="form-control" id="url" name="titulo" placeholder="escribe un titulo"/>
+                       
+                      
+                       <label for="formu"> comentario </label>
+                       <textarea class="form-control" rows="2"  name="descripcion" placeholder="escribe un comentario"></textarea>
+                       
+                      
+                        <button type="submit" class="btn btn-default">Enviar</button>
+                        
+                        
+                    </form>
+                    
+                        
+                 
+                    </div> 
+                        
+                           </div>
+        </div>
+                        
+    </div>
+    <img id="imagen" src={{asset('uploads/archivos/phpFB19.tmp')}} alt="CF"/>                    
+
+
+</div>
+</div>
  
  
 

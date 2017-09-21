@@ -35,8 +35,14 @@
                                                  
                                                  <p>
                                                  <strong>
+                                                  {{ unArchivo.getDescription}}        
+                                                 </strong>
+                                                 <br>
+                                                
+                                                 <p>
+                                                 <strong>
                                                  
-                                                       <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getDescription})}}" class="btn btn-sm btn-primary"> ver mas</a>
+                                                       <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getUrl})}}" class="btn btn-sm btn-primary"> ver mas</a>
                                                     
                                                  </strong>
                                                  <br>

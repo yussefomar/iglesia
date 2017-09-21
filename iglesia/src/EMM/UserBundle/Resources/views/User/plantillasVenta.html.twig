@@ -100,7 +100,7 @@
             <a href="#" class="list-group-item active">Actividades Futuras</a>
             {% for unArchivo in archivos %}
                 
-            <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getDescription})}}"   class="list-group-item"> {{unArchivo.getTitle}}</a>
+            <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getUrl})}}"   class="list-group-item"> {{unArchivo.getTitle}}</a>
             
             {% endfor %} 
             
