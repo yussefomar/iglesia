@@ -488,4 +488,42 @@ protected $tasks;
     {
         return $this->isActive;
     }
+
+    /**
+     * Add comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Task $comentarios
+     * @return User
+     */
+    public function addComentario(\EMM\UserBundle\Entity\Task $comentarios)
+    {
+        $this->comentarios[] = $comentarios;
+
+        return $this;
+    }
+
+    /**
+     * Remove comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Task $comentarios
+     */
+    public function removeComentario(\EMM\UserBundle\Entity\Task $comentarios)
+    {
+        $this->comentarios->removeElement($comentarios);
+    }
+
+    /**
+     * Get comentarios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
+    }
+    
+        public function __toString()
+{
+  return   $this->getUsername();
+}
 }

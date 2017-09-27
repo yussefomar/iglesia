@@ -1,6 +1,8 @@
 <?php
 
 namespace EMM\UserBundle\Entity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert; 
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,6 +29,21 @@ class Comentario
     
      protected $user ;
      
+     
+     /**
+     *@ORM\Column(type="string")
+     *  
+     * @Assert\Image(
+     *     minWidth = 2000,
+     *     maxWidth = 4000,
+     *     minHeight = 2000,
+     *     maxHeight = 4000
+     * )
+     */ 
+     
+     
+    protected $headshot;
+
     /**
      * @var int
      *
@@ -40,6 +57,7 @@ class Comentario
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $titulo;
 
@@ -52,7 +70,7 @@ class Comentario
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="createdAt", type="datetime")
      */
     private $createdAt;
@@ -166,4 +184,62 @@ class Comentario
     {
         return $this->updatedAt;
     }
+
+    /**
+     * Set entradaid
+     *
+     * @param \EMM\UserBundle\Entity\Archivo $entradaid
+     * @return Comentario
+     */
+    public function setEntradaid(\EMM\UserBundle\Entity\Archivo $entradaid = null)
+    {
+        $this->entradaid = $entradaid;
+
+        return $this;
+    }
+
+    /**
+     * Get entradaid
+     *
+     * @return \EMM\UserBundle\Entity\Archivo 
+     */
+    public function getEntradaid()
+    {
+        return $this->entradaid;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \EMM\UserBundle\Entity\User $user
+     * @return Comentario
+     */
+    public function setUser(\EMM\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \EMM\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    
+    public function setHeadshot(File $file = null)
+    {
+        $this->headshot = $file;
+    }
+
+    public function getHeadshot()
+    {
+        return $this->headshot;
+    }
+    
+ 
 }

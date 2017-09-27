@@ -10,7 +10,8 @@ use EMM\UserBundle\Form\UserType;
 use EMM\USerBundle\Models\Document;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use EMM\UserBundle\Entity\Archivo;
-
+use EMM\UserBundle\Entity\Comentario;
+use EMM\UserBundle\Form\ComentarioType;
 
 class UserController extends Controller
 {
@@ -381,12 +382,12 @@ class UserController extends Controller
         return $this->render('EMMUserBundle:User:aboutAs.html.twig',array('archivos'=>$archivos));
     }
     
-      public function entradasAction($entradasurl)
+      public function entradasAction(/*$entradasurl,*/Request $request)
             
     {
           
-        
-
+      /* aca esta lo de mostrar la entrada buscada por la url*/  
+ /*
      $repository = $this->getDoctrine()
     ->getRepository('EMMUserBundle:Archivo');
        
@@ -400,9 +401,100 @@ class UserController extends Controller
     }
        
 
-      
+      /* aca esta el formulario comentario pasado al twig*/
+    
+    
+    $comentario=new Comentario();
+    $form=$this->createCreateFormComentario($comentario/*,$unArchivo*/);
+    /*$form->handleRequest($request);
+    /*
+    if(/*$form->isSubmitted() &&$form->isValid())
+    {
+        $em=$this->getDoctrine->getManager();
+        $em->persist($comentario);
+        $em->flush();
+         return $this->redirect($this->generateUrl($entradasurl,'emm_user_entradas' ));
+         
+     
+    }
+        */
+        return $this->render('EMMUserBundle:User:entradas.html.twig',array( /*'unArchivo'=>$unArchivo,*/'formcomentario' => $form->createView()));
+          
+    }
+    
+     private function createCreateFormComentario(Comentario $entity/*,Archivo $entity2*/)
+    {
+        $form = $this->createForm(new ComentarioType(), $entity, array(
+                'action' => $this->generateUrl('emm_user_comentar'/*, array( 'entradasurl' =>  $entity2->getUrl() )*/),
+                'method' => 'POST'
+            ));
         
-        return $this->render('EMMUserBundle:User:entradas.html.twig',array('unArchivo'=>$unArchivo));
+        return $form;
+    }
+    
+    public function comentarAction(Request $request){
+         $comentario=new Comentario();
+         $form=$this->createCreateFormComentario($comentario/*,$unArchivo*/);
+         $form->handleRequest($request);
+          /* if ($request->isMethod('POST')) {
+        $form->get('user')->submit(3);*/
+
+      /* if( $form->isValid())
+    {
+        $em=$this->getDoctrine->getManager();
+        $em->persist($comentario);
+        $em->flush();
+         return $this->redirect($this->generateUrl('emm_user_entradas' ));
+         
+     $this->get('session')->getFlashBag()->add(
+                                'mensaje', 'el archivo se ha subido correctamente');
+    /*}*/
+    
+    
+   /* }*/
+         
+           
+              
+             
+         
+    
+    if ($form->isSubmitted() && $form->isValid()) {
+            // $file stores the uploaded PDF file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $comentario->getHeadshot();
+            
+             
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Move the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('brochures_directory'),
+                $fileName
+            );
+
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $comentario->setHeadshot($fileName);
+
+            // ... persist the $product variable or any other work
+$em = $this->getDoctrine()->getManager();
+            
+           $em->persist($comentario);
+           $em->flush();
+            return $this->redirect($this->generateUrl('emm_user_entradas' ));
+         
+        $this->get('session')->getFlashBag()->add(
+                                'mensaje', 'el archivo se ha subido correctamente');
+        }
+    
+        
+        
+       
+    
+    $this->get('session')->getFlashBag()->add(
+                        'mensaje', 'no entró o se produjo algún error inesoperado');
+     return $this->render('EMMUserBundle:User:entradas.html.twig',array( /*'unArchivo'=>$unArchivo,*/'formcomentario' => $form->createView()));
     }
    
 }

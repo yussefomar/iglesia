@@ -521,4 +521,9 @@ protected $tasks;
     {
         return $this->comentarios;
     }
+    
+        public function __toString()
+{
+  return   $this->getUsername();
+}
 }

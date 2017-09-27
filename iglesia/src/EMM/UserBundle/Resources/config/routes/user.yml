@@ -7,8 +7,14 @@ emm_user_aboutas:
     defaults: { _controller: EMMUserBundle:User:aboutAs }   
 
 emm_user_entradas:
-    path:     /entradas/{entradasurl}
-    defaults: { _controller: EMMUserBundle:User:entradas } 
+    path:     /entradas
+    defaults: { _controller: EMMUserBundle:User:entradas }
+    
+    
+emm_user_comentar:
+    path:     /comentar
+    defaults: { _controller: EMMUserBundle:User:comentar} 
+    methods:  POST
     
 emm_user_sermones:
     path:     /sermones
@@ -65,4 +71,10 @@ emm_user_redirect_edit:
         path: /edit/{id}
         permanent: true
 
+emm_entrada_redirect_comentar:
+    path: /comentar/{entradasurl}
+    defaults:
+        _controller: EMMUserBundle:User:edit
+        path: /entrada/{entradasurl}
+        permanent: true
 

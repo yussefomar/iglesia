@@ -310,4 +310,49 @@ class Archivo
     {
         return $this->url;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comentarios = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Comentario $comentarios
+     * @return Archivo
+     */
+    public function addComentario(\EMM\UserBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios[] = $comentarios;
+
+        return $this;
+    }
+
+    /**
+     * Remove comentarios
+     *
+     * @param \EMM\UserBundle\Entity\Comentario $comentarios
+     */
+    public function removeComentario(\EMM\UserBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios->removeElement($comentarios);
+    }
+
+    /**
+     * Get comentarios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
+    }
+    
+    public function __toString()
+{
+  return   $this->getArchivo();
+}
 }

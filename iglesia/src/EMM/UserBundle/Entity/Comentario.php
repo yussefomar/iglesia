@@ -1,6 +1,8 @@
 <?php
 
 namespace EMM\UserBundle\Entity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert; 
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,6 +29,21 @@ class Comentario
     
      protected $user ;
      
+     
+     /**
+     *@ORM\Column(type="string")
+     *  
+     * @Assert\Image(
+     *     minWidth = 100,
+     *     maxWidth = 4000,
+     *     minHeight = 100,
+     *     maxHeight = 1000
+     * )
+     */ 
+     
+     
+    protected $headshot;
+
     /**
      * @var int
      *
@@ -40,6 +57,7 @@ class Comentario
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $titulo;
 
@@ -52,7 +70,7 @@ class Comentario
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="createdAt", type="datetime")
      */
     private $createdAt;
@@ -212,4 +230,16 @@ class Comentario
     {
         return $this->user;
     }
+    
+    public function setHeadshot($foto)
+    {
+        $this->headshot = $foto;
+    }
+
+    public function getHeadshot()
+    {
+        return $this->headshot;
+    }
+    
+ 
 }

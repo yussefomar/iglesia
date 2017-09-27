@@ -4,7 +4,7 @@
 {% block body %}
     
     {{parent()}}
-             
+     {#        
      {% for flashMessage in app.session.flashbag.get('mensaje')%}
                         
                         <span class="alert-success">
@@ -65,12 +65,10 @@
                         </div>
                   
                   
-                  
-                  
-                   <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel panel-heading">
+                  <h1>Adding a new product</h1>
+                   #} 
+   
+    
                     <h1>Subir Archivo</h1>
                     {% for flashMessage in app.session.flashbag.get('mensaje')%}
                         
@@ -82,43 +80,50 @@
 
          {% endfor %}    
                 </div>
+<div class="main container">
+		<div class="row well">
+			<div class="col-md-6">
+				<div class="page-header">
+					 
+				</div>
+				{{ form_start(formcomentario, {'attr': {'novalidate': 'novalidate', 'role' : 'form', 'enctype':'multipart/form-data'}}) }}
+				    <h4 class="text-danger">{{ form_errors(formcomentario) }}</h4>
+
+					<fieldset>
+					    <div class="form-group">
+					        {{ form_label(formcomentario.texto) }}
+					        {{ form_widget(formcomentario.texto, {'attr': {'class': 'form-control', 'placeholder' : 'Task title'}}) }}
+					        <span class="text-danger">{{ form_errors(formcomentario.texto) }}</span>
+					    </div>
+
+					  
+
+					    <div class="form-group">
+					        {{ form_label(formcomentario.titulo) }}
+					        {{ form_widget(formcomentario.titulo, {'attr': {'class': 'form-control', 'placeholder' : 'Task description'}}) }}
+					        <span class="text-danger">{{ form_errors(formcomentario.titulo) }}</span>
+					    </div>
+                                            
+                                            <div class="form-group">
+					        {{ form_label(formcomentario.headshot) }}
+					        {{ form_widget(formcomentario.headshot, {'attr': {'class': 'form-control'}}) }}
+					        <span class="text-danger">{{ form_errors(formcomentario.headshot) }}</span>
+					    </div>
+					</fieldset>
+
+				    <p>
+				        {{ form_widget(formcomentario.save, {'label' : 'comentar', 'attr': {'class': 'btn btn-success'}}) }}
+				    </p>
+
+				{{ form_end(formcomentario) }}
+			</div>
+		</div>
+	</div>
+
                   
-                   <div class="panel panel-body">
-                    
-                    
-                    
-                    <form role="form" enctype="multipart/form-data" method="post" action="{{path('emm_user_subir')}}">
-                        <label class="sr-only"  for="formu">foto</label>
-                        <input type="file"  name="archivito" class="form-control" id="formu"/>
-                        
-                         
-
-                      
-                        <label for="formu"> Titulo</label>
-                      <input type="text" class="form-control" id="url" name="titulo" placeholder="escribe un titulo"/>
-                       
-                      
-                       <label for="formu"> comentario </label>
-                       <textarea class="form-control" rows="2"  name="descripcion" placeholder="escribe un comentario"></textarea>
-                       
-                      
-                        <button type="submit" class="btn btn-default">Enviar</button>
-                        
-                        
-                    </form>
-                    
-                        
                  
-                    </div> 
-                        
-                           </div>
-        </div>
-                        
-    </div>
-    <img id="imagen" src={{asset('uploads/archivos/phpFB19.tmp')}} alt="CF"/>                    
-
-
-</div>
+                  
+                  
 </div>
  
  
