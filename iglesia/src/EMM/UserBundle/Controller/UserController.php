@@ -382,12 +382,12 @@ class UserController extends Controller
         return $this->render('EMMUserBundle:User:aboutAs.html.twig',array('archivos'=>$archivos));
     }
     
-      public function entradasAction(/*$entradasurl,*/Request $request)
+      public function entradasAction($entradasurl,Request $request)
             
     {
           
       /* aca esta lo de mostrar la entrada buscada por la url*/  
- /*
+ 
      $repository = $this->getDoctrine()
     ->getRepository('EMMUserBundle:Archivo');
        
@@ -405,7 +405,7 @@ class UserController extends Controller
     
     
     $comentario=new Comentario();
-    $form=$this->createCreateFormComentario($comentario/*,$unArchivo*/);
+    $form=$this->createCreateFormComentario($comentario,$unArchivo);
     /*$form->handleRequest($request);
     /*
     if(/*$form->isSubmitted() &&$form->isValid())
@@ -418,23 +418,36 @@ class UserController extends Controller
      
     }
         */
-        return $this->render('EMMUserBundle:User:entradas.html.twig',array( /*'unArchivo'=>$unArchivo,*/'formcomentario' => $form->createView()));
+        return $this->render('EMMUserBundle:User:entradas.html.twig',array( 'unArchivo'=>$unArchivo,'formcomentario' => $form->createView()));
           
     }
     
-     private function createCreateFormComentario(Comentario $entity/*,Archivo $entity2*/)
+     private function createCreateFormComentario(Comentario $entity ,Archivo $unArchivo)
     {
         $form = $this->createForm(new ComentarioType(), $entity, array(
-                'action' => $this->generateUrl('emm_user_comentar'/*, array( 'entradasurl' =>  $entity2->getUrl() )*/),
+                'action' => $this->generateUrl('emm_user_comentar', array( 'entradasurl' =>  $unArchivo->getUrl() ) ),
                 'method' => 'POST'
             ));
-        
-        return $form;
+          return $form;
     }
     
-    public function comentarAction(Request $request){
+    public function comentarAction($entradasurl,Request $request){
+          $repository = $this->getDoctrine()
+    ->getRepository('EMMUserBundle:Archivo');
+       
+      
+                 $unEntrada = $repository->findOneByUrl($entradasurl);
+
+       if (!$unEntrada) {
+        throw $this->createNotFoundException(
+            'No product found for id '.$entradasurl
+        );
+    }
+        
+        
+        
          $comentario=new Comentario();
-         $form=$this->createCreateFormComentario($comentario/*,$unArchivo*/);
+         $form=$this->createCreateFormComentario($comentario ,$unEntrada);
          $form->handleRequest($request);
           /* if ($request->isMethod('POST')) {
         $form->get('user')->submit(3);*/
@@ -461,6 +474,10 @@ class UserController extends Controller
     if ($form->isSubmitted() && $form->isValid()) {
             // $file stores the uploaded PDF file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+        
+            $usuario= $this->get('security.token_storage')->getToken()->getUser();
+            
+            
             $file = $comentario->getHeadshot();
             
              
@@ -476,13 +493,17 @@ class UserController extends Controller
             // Update the 'brochure' property to store the PDF file name
             // instead of its contents
             $comentario->setHeadshot($fileName);
-
+            $comentario->setUser($usuario);
+            $comentario->setEntradaid($unEntrada);
+            
             // ... persist the $product variable or any other work
 $em = $this->getDoctrine()->getManager();
             
            $em->persist($comentario);
+           $em->persist($usuario);
+           $em->persist($unEntrada);
            $em->flush();
-            return $this->redirect($this->generateUrl('emm_user_entradas' ));
+            return $this->redirect($this->generateUrl('emm_user_entradas', array( 'entradasurl' =>  $unEntrada->getUrl() ) ));
          
         $this->get('session')->getFlashBag()->add(
                                 'mensaje', 'el archivo se ha subido correctamente');

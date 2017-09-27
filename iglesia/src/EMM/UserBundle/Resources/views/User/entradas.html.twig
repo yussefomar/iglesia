@@ -4,7 +4,7 @@
 {% block body %}
     
     {{parent()}}
-     {#        
+             
      {% for flashMessage in app.session.flashbag.get('mensaje')%}
                         
                         <span class="alert-success">
@@ -55,6 +55,21 @@
                  <param name="FlashVars" value="mediaPath=vincent.mp3" /> 
                  </object> 
             </audio>
+                                                  
+                                                   {% for uncomentario in unArchivo.getComentarios %}  
+                                                       <p>
+                                                 <strong>
+                                                     {{uncomentario.getTitulo}}
+                                                     {{uncomentario.getTexto}}
+                                                      <img id="imagen" src="{{asset('public/images/yusseff.jpg')}}" alt="CF"/>
+                                                     <img id="imagen" src="{{ asset('uploads/brochures/' ~ uncomentario.getHeadShot) }}" alt="CF"/>
+                                                      </strong>
+                                                    {% endfor %}       
+                                                
+                  
+                  
+                  
+                  
                                         </div>  
                                     </div>  
                                 </div>
@@ -65,11 +80,7 @@
                         </div>
                   
                   
-                  <h1>Adding a new product</h1>
-                   #} 
-   
-    
-                    <h1>Subir Archivo</h1>
+                  
                     {% for flashMessage in app.session.flashbag.get('mensaje')%}
                         
                         <span class="alert-success">

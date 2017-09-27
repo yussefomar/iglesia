@@ -7,12 +7,12 @@ emm_user_aboutas:
     defaults: { _controller: EMMUserBundle:User:aboutAs }   
 
 emm_user_entradas:
-    path:     /entradas
+    path:     /entradas/{entradasurl}
     defaults: { _controller: EMMUserBundle:User:entradas }
     
     
 emm_user_comentar:
-    path:     /comentar
+    path:     /comentar/{entradasurl}
     defaults: { _controller: EMMUserBundle:User:comentar} 
     methods:  POST
     
