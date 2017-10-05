@@ -436,9 +436,9 @@ class UserController extends Controller
     ->getRepository('EMMUserBundle:Archivo');
        
       
-                 $unEntrada = $repository->findOneByUrl($entradasurl);
+                 $unArchivo = $repository->findOneByUrl($entradasurl);
 
-       if (!$unEntrada) {
+       if (!$unArchivo) {
         throw $this->createNotFoundException(
             'No product found for id '.$entradasurl
         );
@@ -447,7 +447,7 @@ class UserController extends Controller
         
         
          $comentario=new Comentario();
-         $form=$this->createCreateFormComentario($comentario ,$unEntrada);
+         $form=$this->createCreateFormComentario($comentario ,$unArchivo);
          $form->handleRequest($request);
           /* if ($request->isMethod('POST')) {
         $form->get('user')->submit(3);*/
@@ -494,16 +494,16 @@ class UserController extends Controller
             // instead of its contents
             $comentario->setHeadshot($fileName);
             $comentario->setUser($usuario);
-            $comentario->setEntradaid($unEntrada);
+            $comentario->setEntradaid($unArchivo);
             
             // ... persist the $product variable or any other work
 $em = $this->getDoctrine()->getManager();
             
            $em->persist($comentario);
            $em->persist($usuario);
-           $em->persist($unEntrada);
+           $em->persist($unArchivo);
            $em->flush();
-            return $this->redirect($this->generateUrl('emm_user_entradas', array( 'entradasurl' =>  $unEntrada->getUrl() ) ));
+            return $this->redirect($this->generateUrl('emm_user_entradas', array( 'entradasurl' =>  $unArchivo->getUrl() ) ));
          
         $this->get('session')->getFlashBag()->add(
                                 'mensaje', 'el archivo se ha subido correctamente');
@@ -515,7 +515,7 @@ $em = $this->getDoctrine()->getManager();
     
     $this->get('session')->getFlashBag()->add(
                         'mensaje', 'no entró o se produjo algún error inesoperado');
-     return $this->render('EMMUserBundle:User:entradas.html.twig',array( /*'unArchivo'=>$unArchivo,*/'formcomentario' => $form->createView()));
+     return $this->render('EMMUserBundle:User:entradas.html.twig',array( 'unArchivo'=>$unArchivo,'formcomentario' => $form->createView()));
     }
    
 }

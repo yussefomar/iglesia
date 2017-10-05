@@ -14,11 +14,11 @@
                     {% endfor %}
                     
     <div class="container">
-    <div class="row">
+     
                             
                                     
                                  
-                            <div class="row">
+                             
                                 <div class="col-md-12">
 
                                     <div class="panel panel-default">
@@ -57,13 +57,12 @@
             </audio>
                                                   
                                                    {% for uncomentario in unArchivo.getComentarios %}  
-                                                       <p>
-                                                 <strong>
-                                                     {{uncomentario.getTitulo}}
-                                                     {{uncomentario.getTexto}}
+                                                       
+                                                     
+                                                     <p>{{uncomentario.getTexto}}</p>
                                                       <img id="imagen" src="{{asset('public/images/yusseff.jpg')}}" alt="CF"/>
                                                      <img id="imagen" src="{{ asset('uploads/brochures/' ~ uncomentario.getHeadShot) }}" alt="CF"/>
-                                                      </strong>
+                                                        
                                                     {% endfor %}       
                                                 
                   
@@ -73,11 +72,11 @@
                                         </div>  
                                     </div>  
                                 </div>
-                            </div>  
-                                        
                                  
+                             </div>
+     
                                    
-                        </div>
+                        
                   
                   
                   
@@ -87,16 +86,17 @@
                             {{flashMessage}}
                         </span>
                         
-               <div class="container">
+              
 
          {% endfor %}    
-                </div>
-<div class="main container">
-		<div class="row well">
-			<div class="col-md-6">
+                
+ 
+		<div class="container">
+			<div class="col-md-12">
 				<div class="page-header">
 					 
 				</div>
+                                <div class="panel panel-body">
 				{{ form_start(formcomentario, {'attr': {'novalidate': 'novalidate', 'role' : 'form', 'enctype':'multipart/form-data'}}) }}
 				    <h4 class="text-danger">{{ form_errors(formcomentario) }}</h4>
 
@@ -109,17 +109,39 @@
 
 					  
 
-					    <div class="form-group">
-					        {{ form_label(formcomentario.titulo) }}
-					        {{ form_widget(formcomentario.titulo, {'attr': {'class': 'form-control', 'placeholder' : 'Task description'}}) }}
-					        <span class="text-danger">{{ form_errors(formcomentario.titulo) }}</span>
-					    </div>
+					    
                                             
                                             <div class="form-group">
 					        {{ form_label(formcomentario.headshot) }}
 					        {{ form_widget(formcomentario.headshot, {'attr': {'class': 'form-control'}}) }}
 					        <span class="text-danger">{{ form_errors(formcomentario.headshot) }}</span>
 					    </div>
+                                            <div class="form-group">
+                                              
+                                               {{ form_widget(formcomentario.createdAt,  { 'attr': {'style': 'display:none'} }) }}
+                                               <span class="text-danger">{{ form_errors(formcomentario.createdAt) }}</span>
+                                           </div>
+                                             
+                                            <div class="form-group">
+                                              
+                                               {{ form_widget(formcomentario.updatedAt,  { 'attr': {'style': 'display:none'} }) }}
+                                               <span class="text-danger">{{ form_errors(formcomentario.updatedAt) }}</span>
+                                           </div>
+                                           
+                                           <div class="form-group">
+                                              
+                                               {{ form_widget(formcomentario.entradaid,  { 'attr': {'style': 'display:none'} }) }}
+                                               <span class="text-danger">{{ form_errors(formcomentario.entradaid) }}</span>
+                                           </div>
+                                           
+                                           <div class="form-group">
+                                              
+                                               {{ form_widget(formcomentario.user,  { 'attr': {'style': 'display:none'} }) }}
+                                               <span class="text-danger">{{ form_errors(formcomentario.user) }}</span>
+                                           </div>
+                                           
+                                           
+                                           
 					</fieldset>
 
 				    <p>
@@ -127,16 +149,16 @@
 				    </p>
 
 				{{ form_end(formcomentario) }}
+                                </div>
 			</div>
 		</div>
-	</div>
+	 
 
                   
                  
                   
                   
-</div>
- 
+
  
 
     

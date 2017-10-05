@@ -53,18 +53,11 @@ class Comentario
      */
     private $id;
 
+    
     /**
      * @var string
      *
-     * @ORM\Column(name="titulo", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $titulo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="texto", type="string", length=255)
+     * @ORM\Column(name="texto", type="text")
      */
     private $texto;
 
@@ -93,28 +86,8 @@ class Comentario
         return $this->id;
     }
 
-    /**
-     * Set titulo
-     *
-     * @param string $titulo
-     * @return Comentario
-     */
-    public function setTitulo($titulo)
-    {
-        $this->titulo = $titulo;
-
-        return $this;
-    }
-
-    /**
-     * Get titulo
-     *
-     * @return string 
-     */
-    public function getTitulo()
-    {
-        return $this->titulo;
-    }
+    
+     
 
     /**
      * Set texto

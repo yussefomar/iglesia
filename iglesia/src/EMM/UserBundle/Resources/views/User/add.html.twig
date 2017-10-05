@@ -46,6 +46,16 @@
 			        {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
 			        <span class="text-danger">{{ form_errors(form.role) }}</span>
 			    </div>
+                             <div class="form-group">
+			        
+			        {{ form_widget(form.updatedAt,  { 'attr': {'style': 'display:none'} }) }}
+			        <span class="text-danger">{{ form_errors(form.role) }}</span>
+			    </div>
+                            <div class="form-group">
+			       
+			        {{ form_widget(form.createdAt,  { 'attr': {'style': 'display:none'} }) }}
+			        <span class="text-danger">{{ form_errors(form.role) }}</span>
+			    </div>
 
 				<div class="checkbox">
 				    <label>
@@ -63,4 +73,6 @@
 			</div>
 		</div>
 	</div>
+                
+                
 {% endblock %}

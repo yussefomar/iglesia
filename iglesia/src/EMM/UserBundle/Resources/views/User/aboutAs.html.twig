@@ -27,6 +27,11 @@
                                             <span class="glyphicon glyphicon-calendar" aria-hidden="true"><span class="text-justify">  {{unArchivo.getTitle}}</span>
                                         </div>  
                                         <div class="panel panel-body">
+                                                 <p>
+                                                 <strong>
+                                                  {{unArchivo.getUser}}        
+                                                 </strong>
+                                                 <br>
                                                     <p>
                                                  <strong>
                                                   {{unArchivo.getcreatedat|date('Y-m-d H:i:s')}}        
@@ -38,14 +43,8 @@
                                                   {{ unArchivo.getDescription}}        
                                                  </strong>
                                                  <br>
+                                                 </p>
                                                 
-                                                 <p>
-                                                 <strong>
-                                                 
-                                                       <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getUrl})}}" class="btn btn-sm btn-primary"> ver mas</a>
-                                                    
-                                                 </strong>
-                                                 <br>
                                          
                                                 
                                                
@@ -56,6 +55,16 @@
                  <param name="FlashVars" value="mediaPath=vincent.mp3" /> 
                  </object> 
             </audio>
+                  
+                  
+                                                <p>
+                                                 <strong>
+                                                 
+                                                       <a href="{{path('emm_user_entradas',{entradasurl:unArchivo.getUrl})}}" class="btn btn-sm btn-primary"> ver mas</a>
+                                                    
+                                                 </strong>
+                                                 <br>
+                                                 </p>
                                         </div>  
                                     </div>  
                                 </div>

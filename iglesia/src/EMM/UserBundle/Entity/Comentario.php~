@@ -34,10 +34,10 @@ class Comentario
      *@ORM\Column(type="string")
      *  
      * @Assert\Image(
-     *     minWidth = 2000,
+     *     minWidth = 100,
      *     maxWidth = 4000,
-     *     minHeight = 2000,
-     *     maxHeight = 4000
+     *     minHeight = 100,
+     *     maxHeight = 1000
      * )
      */ 
      
@@ -53,18 +53,11 @@ class Comentario
      */
     private $id;
 
+    
     /**
      * @var string
      *
-     * @ORM\Column(name="titulo", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $titulo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="texto", type="string", length=255)
+     * @ORM\Column(name="texto", type="text")
      */
     private $texto;
 
@@ -93,28 +86,8 @@ class Comentario
         return $this->id;
     }
 
-    /**
-     * Set titulo
-     *
-     * @param string $titulo
-     * @return Comentario
-     */
-    public function setTitulo($titulo)
-    {
-        $this->titulo = $titulo;
-
-        return $this;
-    }
-
-    /**
-     * Get titulo
-     *
-     * @return string 
-     */
-    public function getTitulo()
-    {
-        return $this->titulo;
-    }
+    
+     
 
     /**
      * Set texto
@@ -231,9 +204,9 @@ class Comentario
         return $this->user;
     }
     
-    public function setHeadshot(File $file = null)
+    public function setHeadshot($foto)
     {
-        $this->headshot = $file;
+        $this->headshot = $foto;
     }
 
     public function getHeadshot()

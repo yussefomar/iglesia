@@ -17,7 +17,6 @@ class ComentarioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('headshot',FileType::class, array('label' => 'Brochure (PDF file)'))
-                ->add('titulo')
                 ->add('texto')
                 ->add('createdAt')
                 ->add('updatedAt')
